@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrónica</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="header-content">
+    
+            <img
+            src="img/logo.png"
+            alt="Logo Universidad"
+            class="logo-universidad"
+            >
+    
+            <div>
+    
+                <h1>Electrónica</h1>
+    
+                <p>
+                    Página educativa interactiva
+                </p>
+    
+            </div>
+    
+        </div>
+    
+    </header>
+
+<!-- ========================================================= -->
+<!-- INDICE DE NAVEGACION -->
+<!-- ========================================================= -->
+
+<nav class="indice">
+
+    <h2>Índice</h2>
+
+    <ul>
+
+        <li><a href="#unidad1">Unidad 1 — Semiconductores y Diodos</a></li>
+
+        <li><a href="#semiconductores">• Semiconductores</a></li>
+        <li><a href="#unionpn">• Unión PN</a></li>
+        <li><a href="#diodos">• Diodos</a></li>
+        <li><a href="#led">• LED</a></li>
+        <li><a href="#zener">• Diodo Zener</a></li>
+
+        <li><a href="#unidad2">Unidad 2 — Transistores BJT</a></li>
+
+        <li><a href="#bjt">• BJT</a></li>
+        <li><a href="#regiones">• Regiones de operación</a></li>
+        <li><a href="#polarizacion">• Polarización</a></li>
+        <li><a href="#conmutacion">• Conmutación</a></li>
+
+        <li><a href="#unidad3">Unidad 3 — FET y Amplificadores</a></li>
+
+        <li><a href="#mosfet">• FET / MOSFET</a></li>
+        <li><a href="#amplificadores">• Amplificadores</a></li>
+
+        <li><a href="#unidad4">Unidad 4 — Electrónica de Potencia</a></li>
+
+        <li><a href="#scr">• SCR</a></li>
+        <li><a href="#triac">• TRIAC</a></li>
+        <li><a href="#potencia">• Electrónica de potencia</a></li>
+
+    </ul>
+
+</nav>
+
+    <section class="container">
+
+        <!-- CARD OHM -->
+        <article class="card">
+
+            <div class="card-header">
+
+                <img src="img/TrianguloOhm.png" alt="Ley de Ohm">
+
+                <div class="card-text">
+                    <h2>Ley de Ohm</h2>
+                    <p>Lo básico sobre voltaje, corriente y resistencia.</p>
+                </div>
+
+            </div>
+
+            <div class="card-content">
+
+                <p>
+                    Aquí puedes colocar toda la información de la Ley de Ohm.
+                </p>
+
+                <h3>Calculadora Ley de Ohm</h3>
+
+            <div class="calculator">
+
+                <input type="number" id="voltaje" placeholder="Voltaje (V)">
+
+                <input type="number" id="corriente" placeholder="Corriente (I)">
+
+                <button onclick="calcularResistencia()">
+                    Calcular
+                </button>
+
+                <p id="resultadoOhm"></p>
+
+            </div>
+
+
+            </div>
+
+        </article>
+
+        <!-- CARD WATT -->
+        <article class="card">
+
+            <div class="card-header">
+
+                <img src="img/TriangulodeWatt.png" alt="Ley de Watt">
+
+                <div class="card-text">
+                    <h2>Ley de Watt</h2>
+                    <p>Relación entre potencia, voltaje y corriente.</p>
+                </div>
+
+            </div>
+
+            <div class="card-content">
+
+                <p>
+                    Aquí puedes colocar la información de la Ley de Watt.
+                </p>
+
+
+
+
+
+                <h3>Calculadora Ley de Watt</h3>
+
+            <div class="calculator">
+
+                <input
+                type="number"
+                id="voltajeW"
+                placeholder="Voltaje (V)"
+                >
+
+                <input
+                type="number"
+                id="corrienteW"
+                 placeholder="Corriente (I)"
+                >
+
+                <button onclick="calcularPotencia()">
+                    Calcular
+                </button>
+
+                <p id="resultadoWatt"></p>
+
+            </div>
+            </div>
+
+        </article>
+        
+    </section>
+
+    <!-- ========================================================= -->
+<!-- DIVISOR ENTRE CALCULADORAS Y TALLER -->
+<!-- ========================================================= -->
+
+<section class="separador-taller">
+    <div class="linea"></div>
+    <h2>Taller de Investigación: Fundamentos de la Electrónica Analógica</h2>
+    <div class="linea"></div>
+</section>
+
+<!-- ========================================================= -->
+<!-- CONTENIDO DEL TALLER -->
+<!-- ========================================================= -->
+
+<section class="taller-electronica">
+
+    <div class="bloque-taller">
+        <h3>Introducción</h3>
+
+        <p>
+            La electrónica analógica estudia el comportamiento y control de señales eléctricas continuas.
+            Está presente en cargadores, radios, televisores, sensores, amplificadores y prácticamente
+            todos los dispositivos modernos.
+        </p>
+
+        <p>
+            Comprender los conceptos básicos permite entender cómo funciona la energía eléctrica
+            y cómo puede ser utilizada para alimentar o controlar sistemas electrónicos.
+        </p>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- BLOQUE 1 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+        <h2>Bloque 1: Fundamentos</h2>
+
+        <h3>Electricidad</h3>
+
+        <p>
+            La electricidad es una forma de energía producida por el movimiento o acumulación
+            de cargas eléctricas, especialmente electrones.
+        </p>
+
+        <ul>
+            <li><strong>Representación:</strong> V, I, R, P</li>
+            <li><strong>Ejemplo:</strong> Un ventilador conectado al enchufe.</li>
+        </ul>
+
+        <h3>Electrón</h3>
+
+        <p>
+            Es una partícula subatómica con carga negativa responsable del flujo eléctrico.
+        </p>
+
+        <ul>
+            <li><strong>Símbolo:</strong> e⁻</li>
+            <li><strong>Ejemplo:</strong> Movimiento de electrones dentro de un cable.</li>
+        </ul>
+
+        <h3>Movimiento de electrones</h3>
+
+        <p>
+            Es el desplazamiento de electrones dentro de un conductor debido a una diferencia
+            de potencial eléctrico.
+        </p>
+
+        <ul>
+            <li><strong>Unidad relacionada:</strong> Amperio (A)</li>
+            <li><strong>Ejemplo:</strong> Encender una lámpara.</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- BLOQUE 2 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Bloque 2: Flujo Eléctrico</h2>
+
+        <h3>Sentido Real</h3>
+
+        <p>
+            Los electrones se desplazan desde el polo negativo hacia el positivo.
+        </p>
+
+        <h3>Sentido Convencional</h3>
+
+        <p>
+            La corriente se representa desde el polo positivo hacia el negativo.
+        </p>
+
+        <p>
+            Aunque ambos sentidos son opuestos, los circuitos funcionan igual porque
+            solo representan distintas formas de analizar el flujo eléctrico.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- BLOQUE 3 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Bloque 3: Circuitos</h2>
+
+        <h3>Ánodo</h3>
+
+        <p>
+            Terminal por donde entra la corriente convencional.
+        </p>
+
+        <h3>Cátodo</h3>
+
+        <p>
+            Terminal por donde sale la corriente convencional.
+        </p>
+
+        <h3>Fuente de Alimentación</h3>
+
+        <p>
+            Elemento encargado de suministrar energía eléctrica a un circuito.
+        </p>
+
+        <h3>Receptor o Carga</h3>
+
+        <p>
+            Dispositivo que transforma la energía eléctrica en otro tipo de energía.
+        </p>
+
+        <h3>Circuito Eléctrico</h3>
+
+        <p>
+            Conjunto de componentes conectados formando un camino cerrado
+            para el paso de corriente eléctrica.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- BLOQUE 4 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Bloque 4: Electricidad vs Electrónica</h2>
+
+        <p>
+            La electricidad se enfoca en transportar energía.
+        </p>
+
+        <p>
+            La electrónica utiliza esa energía para controlar señales
+            y hacer funcionar dispositivos inteligentes.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- BLOQUE 5 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Bloque 5: Magnitudes Eléctricas</h2>
+
+        <h3>Carga Eléctrica</h3>
+
+        <ul>
+            <li><strong>Unidad:</strong> Coulomb (C)</li>
+            <li><strong>Símbolo:</strong> Q</li>
+        </ul>
+
+        <h3>Corriente Eléctrica</h3>
+
+        <ul>
+            <li><strong>Unidad:</strong> Amperio (A)</li>
+            <li><strong>Símbolo:</strong> I</li>
+        </ul>
+
+        <div class="formula">
+            I = Q / t
+        </div>
+
+        <h3>Voltaje</h3>
+
+        <ul>
+            <li><strong>Unidad:</strong> Voltio (V)</li>
+            <li><strong>Símbolo:</strong> V</li>
+        </ul>
+
+        <h3>Resistencia</h3>
+
+        <ul>
+            <li><strong>Unidad:</strong> Ohmio (Ω)</li>
+            <li><strong>Símbolo:</strong> R</li>
+        </ul>
+
+        <div class="formula">
+            R = V / I
+        </div>
+
+        <h3>Potencia Eléctrica</h3>
+
+        <ul>
+            <li><strong>Unidad:</strong> Watt (W)</li>
+            <li><strong>Símbolo:</strong> P</li>
+        </ul>
+
+        <div class="formula">
+            P = V × I
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- LEY DE OHM -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Ley de Ohm</h2>
+
+        <div class="formula formula-grande">
+            V = I × R
+        </div>
+
+        <p>
+            La Ley de Ohm relaciona el voltaje, la corriente y la resistencia.
+        </p>
+
+        <ul>
+            <li>Mayor voltaje = Mayor corriente</li>
+            <li>Mayor resistencia = Menor corriente</li>
+        </ul>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- FASE 2 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Fase 2: Análisis y Reflexión</h2>
+
+        <h3>¿Por qué los electrones necesitan energía para moverse?</h3>
+
+        <p>
+            Porque necesitan una diferencia de potencial eléctrico
+            que impulse su movimiento.
+        </p>
+
+        <h3>¿Qué pasaría si la resistencia fuera cero?</h3>
+
+        <p>
+            La corriente aumentaría demasiado y podría producir un cortocircuito.
+        </p>
+
+        <h3>¿Qué relación tiene la potencia con el calor?</h3>
+
+        <p>
+            Parte de la energía eléctrica se transforma en calor debido
+            a la resistencia de los materiales.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- FASE 3 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Fase 3: Aplicación</h2>
+
+        <h3>Cargador de celular</h3>
+
+        <p>
+            El cargador transforma el voltaje de la red eléctrica
+            (110V/220V) a un voltaje mucho menor como 5V.
+        </p>
+
+        <p>
+            Esto es necesario para evitar daños en el celular.
+        </p>
+
+        <p>
+            Parte de la energía también se transforma en calor,
+            por eso el cargador puede calentarse.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- FASE 4 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Fase 4: Analogía</h2>
+
+        <p>
+            Imaginemos una ciudad llena de repartidores:
+        </p>
+
+        <ul>
+            <li><strong>Voltaje:</strong> La urgencia de entregar paquetes.</li>
+            <li><strong>Corriente:</strong> Cantidad de repartidores circulando.</li>
+            <li><strong>Resistencia:</strong> Trancones y obstáculos.</li>
+        </ul>
+
+    </div>
+
+        <!-- ========================================================= -->
+    <!-- FASE 5 -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>Fase 5: Predicción Visual</h2>
+
+        <p>
+            Circuito simple compuesto por:
+        </p>
+
+        <ul>
+            <li>Pila</li>
+            <li>Cables conductores</li>
+            <li>Bombillo</li>
+        </ul>
+
+        <!-- ========================================================= -->
+        <!-- CIRCUITO -->
+        <!-- ========================================================= -->
+
+        <div class="contenedor-circuito">
+
+            <!-- PILA -->
+            <div class="pila">
+                <div class="positivo">+</div>
+                <div class="negativo">−</div>
+            </div>
+
+            <!-- CABLE SUPERIOR -->
+            <div class="cable-superior"></div>
+
+            <!-- BOMBILLO -->
+            <div class="bombillo">
+                <div class="filamento"></div>
+            </div>
+
+            <!-- CABLE INFERIOR -->
+            <div class="cable-inferior"></div>
+
+            <!-- FLECHAS -->
+            <div class="flecha-real">
+                ➜ ➜ ➜
+            </div>
+
+            <div class="flecha-convencional">
+                ➜ ➜ ➜
+            </div>
+
+            <!-- LABELS -->
+            <div class="label-real">
+                Sentido Real (electrones)
+            </div>
+
+            <div class="label-convencional">
+                Sentido Convencional
+            </div>
+
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- EXPLICACION -->
+        <!-- ========================================================= -->
+
+        <div class="explicacion-circuito">
+
+            <h3>¿Por qué el bombillo enciende igual?</h3>
+
+            <p>
+                Aunque el sentido real y el sentido convencional son opuestos,
+                ambos representan el mismo fenómeno físico: el movimiento de energía
+                eléctrica a través del circuito.
+            </p>
+
+            <p>
+                El bombillo enciende porque existe una diferencia de voltaje
+                que impulsa la circulación de corriente.
+            </p>
+
+            <h3>¿Dónde hay mayor energía?</h3>
+
+            <p>
+                La mayor energía se encuentra cerca del terminal positivo de la pila.
+            </p>
+
+            <h3>¿Dónde hay menor energía?</h3>
+
+            <p>
+                Después de atravesar el bombillo, parte de la energía se transforma
+                en luz y calor, por lo que el nivel de energía disminuye.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- UNIDAD 1 -->
+<!-- ========================================================= -->
+
+<section
+id="unidad1"
+class="taller-electronica"
+>
+
+    <div class="bloque-taller">
+
+        <h2>
+            Unidad 1 — Semiconductores y Diodos
+        </h2>
+
+        <p>
+            Esta unidad estudia los componentes fundamentales
+            de la electrónica moderna y el comportamiento
+            de los materiales semiconductores.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- SEMICONDUCTORES -->
+    <!-- ========================================================= -->
+
+    <div
+    id="semiconductores"
+    class="bloque-taller"
+    >
+
+        <h2>Semiconductores</h2>
+
+        <p>
+            Los semiconductores son materiales capaces de
+            comportarse como conductores o aislantes dependiendo
+            de ciertas condiciones.
+        </p>
+
+        <p>
+            Los más utilizados son el silicio y el germanio,
+            materiales fundamentales para fabricar transistores,
+            diodos y circuitos integrados.
+        </p>
+
+        <h3>Diferencia entre materiales</h3>
+
+        <ul>
+            <li>
+                <strong>Conductores:</strong>
+                Permiten el paso fácil de corriente.
+            </li>
+
+            <li>
+                <strong>Aislantes:</strong>
+                Impiden el movimiento de electrones.
+            </li>
+
+            <li>
+                <strong>Semiconductores:</strong>
+                Controlan parcialmente el flujo eléctrico.
+            </li>
+        </ul>
+
+        <h3>Aplicaciones reales</h3>
+
+        <ul>
+            <li>Procesadores</li>
+            <li>Paneles solares</li>
+            <li>Celulares</li>
+            <li>Computadores</li>
+        </ul>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- UNION PN -->
+    <!-- ========================================================= -->
+
+    <div
+    id="unionpn"
+    class="bloque-taller"
+    >
+
+        <h2>Unión PN</h2>
+
+        <p>
+            La unión PN se forma al unir un material tipo P
+            con un material tipo N.
+        </p>
+
+        <p>
+            Esta unión crea una zona de agotamiento que controla
+            el flujo de corriente eléctrica.
+        </p>
+
+        <h3>Polarización directa</h3>
+
+        <p>
+            Permite el paso de corriente.
+        </p>
+
+        <h3>Polarización inversa</h3>
+
+        <p>
+            Bloquea el paso de corriente.
+        </p>
+
+        <!-- ========================================================= -->
+        <!-- INTERACCION -->
+        <!-- ========================================================= -->
+
+        <div class="unionpn-box">
+
+            <button onclick="cambiarPolarizacion()">
+                Cambiar Polarización
+            </button>
+
+            <div id="estadoPN">
+
+                Polarización Directa:
+                La corriente puede circular.
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- DIODOS -->
+    <!-- ========================================================= -->
+
+    <div
+    id="diodos"
+    class="bloque-taller"
+    >
+
+        <h2>Diodos</h2>
+
+        <p>
+            El diodo es un componente electrónico que permite
+            el paso de corriente en un solo sentido.
+        </p>
+
+        <p>
+            Funciona gracias a la unión PN.
+        </p>
+
+        <h3>Aplicaciones</h3>
+
+        <ul>
+            <li>Rectificadores</li>
+            <li>Protección de circuitos</li>
+            <li>Fuentes de alimentación</li>
+        </ul>
+
+        <h3>Analogía</h3>
+
+        <p>
+            Un diodo funciona como una puerta de una sola dirección.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- LED -->
+    <!-- ========================================================= -->
+
+    <div
+    id="led"
+    class="bloque-taller"
+    >
+
+        <h2>LED</h2>
+
+        <p>
+            Un LED es un diodo capaz de emitir luz
+            cuando circula corriente eléctrica.
+        </p>
+
+        <h3>Control de brillo</h3>
+
+        <div class="led-container">
+
+            <div id="ledLight"></div>
+
+            <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            id="sliderLED"
+            oninput="controlarLED()"
+            >
+
+        </div>
+
+        <p>
+            Los LEDs son utilizados en pantallas,
+            iluminación y dispositivos electrónicos.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ZENER -->
+    <!-- ========================================================= -->
+
+    <div
+    id="zener"
+    class="bloque-taller"
+    >
+
+        <h2>Diodo Zener</h2>
+
+        <p>
+            El diodo Zener se utiliza para regular voltaje
+            y proteger circuitos electrónicos.
+        </p>
+
+        <p>
+            Funciona principalmente en polarización inversa.
+        </p>
+
+        <h3>Aplicaciones</h3>
+
+        <ul>
+            <li>Fuentes reguladas</li>
+            <li>Protección contra sobrevoltaje</li>
+            <li>Regulación electrónica</li>
+        </ul>
+
+        <div class="formula">
+            Vz = Voltaje Zener
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- UNIDAD 2 -->
+<!-- ========================================================= -->
+
+<section
+id="unidad2"
+class="taller-electronica"
+>
+
+    <!-- ========================================================= -->
+    <!-- INTRO -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>
+            Unidad 2 — Transistores BJT
+        </h2>
+
+        <p>
+            Los transistores BJT son componentes fundamentales
+            en la electrónica moderna. Permiten amplificar señales
+            y funcionar como interruptores electrónicos.
+        </p>
+
+        <p>
+            Son utilizados en computadoras, sensores,
+            amplificadores y sistemas digitales.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- BJT -->
+    <!-- ========================================================= -->
+
+    <div
+    id="bjt"
+    class="bloque-taller"
+    >
+
+        <h2>Transistor BJT</h2>
+
+        <p>
+            El transistor BJT (Bipolar Junction Transistor)
+            es un dispositivo semiconductor de tres terminales.
+        </p>
+
+        <h3>Terminales</h3>
+
+        <ul>
+            <li>
+                <strong>Base:</strong>
+                Controla el transistor.
+            </li>
+
+            <li>
+                <strong>Colector:</strong>
+                Recibe la corriente principal.
+            </li>
+
+            <li>
+                <strong>Emisor:</strong>
+                Libera la corriente.
+            </li>
+        </ul>
+
+        <h3>Tipos</h3>
+
+        <ul>
+            <li>
+                <strong>NPN:</strong>
+                Más utilizado en electrónica.
+            </li>
+
+            <li>
+                <strong>PNP:</strong>
+                Funciona con polaridad inversa.
+            </li>
+        </ul>
+
+        <h3>Aplicaciones reales</h3>
+
+        <ul>
+            <li>Amplificadores de audio</li>
+            <li>Microcontroladores</li>
+            <li>Arduino</li>
+            <li>Electrónica digital</li>
+        </ul>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- REGIONES -->
+    <!-- ========================================================= -->
+
+    <div
+    id="regiones"
+    class="bloque-taller"
+    >
+
+        <h2>Regiones de Operación</h2>
+
+        <p>
+            El transistor puede trabajar en diferentes regiones
+            dependiendo de la corriente y el voltaje aplicado.
+        </p>
+
+        <div class="regiones-grid">
+
+            <div class="region-card corte">
+
+                <h3>Corte</h3>
+
+                <p>
+                    El transistor está apagado
+                    y no conduce corriente.
+                </p>
+
+            </div>
+
+            <div class="region-card activa">
+
+                <h3>Activa</h3>
+
+                <p>
+                    El transistor amplifica señales eléctricas.
+                </p>
+
+            </div>
+
+            <div class="region-card saturacion">
+
+                <h3>Saturación</h3>
+
+                <p>
+                    El transistor conduce completamente.
+                </p>
+
+            </div>
+
+        </div>
+
+        <h3>Analogía</h3>
+
+        <p>
+            El transistor funciona como una llave inteligente:
+            puede abrirse parcialmente o completamente.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- POLARIZACION -->
+    <!-- ========================================================= -->
+
+    <div
+    id="polarizacion"
+    class="bloque-taller"
+    >
+
+        <h2>Polarización</h2>
+
+        <p>
+            La polarización consiste en aplicar voltajes adecuados
+            para que el transistor funcione correctamente.
+        </p>
+
+        <h3>Tipos de polarización</h3>
+
+        <ul>
+
+            <li>
+                <strong>Polarización fija:</strong>
+                Método sencillo pero menos estable.
+            </li>
+
+            <li>
+                <strong>Divisor de voltaje:</strong>
+                Método más estable y utilizado.
+            </li>
+
+        </ul>
+
+        <h3>Control de corriente</h3>
+
+        <div class="slider-box">
+
+            <input
+            type="range"
+            min="0"
+            max="100"
+            value="20"
+            id="sliderCorriente"
+            oninput="controlarCorriente()"
+            >
+
+            <div id="barraCorriente">
+
+                Corriente Baja
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- CONMUTACION -->
+    <!-- ========================================================= -->
+
+    <div
+    id="conmutacion"
+    class="bloque-taller"
+    >
+
+        <h2>Conmutación</h2>
+
+        <p>
+            En electrónica digital, el transistor puede funcionar
+            como un interruptor electrónico.
+        </p>
+
+        <p>
+            Esto permite encender o apagar dispositivos
+            utilizando señales pequeñas.
+        </p>
+
+        <h3>Aplicaciones</h3>
+
+        <ul>
+            <li>Relés</li>
+            <li>Controladores</li>
+            <li>Microprocesadores</li>
+            <li>Automatización</li>
+        </ul>
+
+        <!-- ========================================================= -->
+        <!-- INTERRUPTOR -->
+        <!-- ========================================================= -->
+
+        <div class="switch-container">
+
+            <button onclick="activarTransistor()">
+
+                Activar Transistor
+
+            </button>
+
+            <div id="estadoTransistor">
+
+                Transistor OFF
+
+            </div>
+
+            <div id="ledTransistor"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- UNIDAD 3 -->
+<!-- ========================================================= -->
+
+<section
+id="unidad3"
+class="taller-electronica"
+>
+
+    <!-- ========================================================= -->
+    <!-- INTRO -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>
+            Unidad 3 — FET y Amplificadores
+        </h2>
+
+        <p>
+            Esta unidad estudia dispositivos electrónicos
+            capaces de controlar señales eléctricas mediante
+            voltaje y amplificar pequeñas señales.
+        </p>
+
+        <p>
+            Los MOSFET y amplificadores son esenciales
+            en computadoras, audio, motores y sistemas modernos.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MOSFET -->
+    <!-- ========================================================= -->
+
+    <div
+    id="mosfet"
+    class="bloque-taller"
+    >
+
+        <h2>FET / MOSFET</h2>
+
+        <p>
+            Un MOSFET es un transistor controlado por voltaje.
+            A diferencia del BJT, requiere muy poca corriente
+            para funcionar.
+        </p>
+
+        <h3>Terminales</h3>
+
+        <ul>
+
+            <li>
+                <strong>Gate:</strong>
+                Controla el transistor.
+            </li>
+
+            <li>
+                <strong>Drain:</strong>
+                Entrada principal de corriente.
+            </li>
+
+            <li>
+                <strong>Source:</strong>
+                Salida de corriente.
+            </li>
+
+        </ul>
+
+        <h3>Diferencias entre BJT y MOSFET</h3>
+
+        <div class="comparacion-grid">
+
+            <div class="comparacion-card">
+
+                <h3>BJT</h3>
+
+                <ul>
+                    <li>Controlado por corriente</li>
+                    <li>Mayor consumo</li>
+                    <li>Muy usado en amplificación</li>
+                </ul>
+
+            </div>
+
+            <div class="comparacion-card">
+
+                <h3>MOSFET</h3>
+
+                <ul>
+                    <li>Controlado por voltaje</li>
+                    <li>Menor consumo</li>
+                    <li>Muy usado en potencia</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CONTROL MOSFET -->
+        <!-- ========================================================= -->
+
+        <h3>Control de Voltaje Gate</h3>
+
+        <div class="mosfet-control">
+
+            <input
+            type="range"
+            min="0"
+            max="100"
+            value="10"
+            id="sliderGate"
+            oninput="controlarMOSFET()"
+            >
+
+            <div id="estadoMOSFET">
+
+                Voltaje Bajo
+
+            </div>
+
+            <div class="canal-mosfet">
+
+                <div id="flujoMOSFET"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- AMPLIFICADORES -->
+    <!-- ========================================================= -->
+
+    <div
+    id="amplificadores"
+    class="bloque-taller"
+    >
+
+        <h2>Amplificadores</h2>
+
+        <p>
+            Un amplificador aumenta la amplitud
+            de una señal eléctrica.
+        </p>
+
+        <p>
+            Son fundamentales en sistemas de audio,
+            radios, televisores y micrófonos.
+        </p>
+
+        <h3>Conceptos importantes</h3>
+
+        <ul>
+
+            <li>
+                <strong>Señal de entrada:</strong>
+                Señal pequeña inicial.
+            </li>
+
+            <li>
+                <strong>Ganancia:</strong>
+                Nivel de amplificación.
+            </li>
+
+            <li>
+                <strong>Señal de salida:</strong>
+                Señal amplificada.
+            </li>
+
+        </ul>
+
+        <!-- ========================================================= -->
+        <!-- GANANCIA -->
+        <!-- ========================================================= -->
+
+        <h3>Control de Ganancia</h3>
+
+        <div class="ganancia-box">
+
+            <input
+            type="range"
+            min="1"
+            max="100"
+            value="20"
+            id="sliderGanancia"
+            oninput="controlarGanancia()"
+            >
+
+            <div class="grafica-container">
+
+                <div class="onda entrada">
+
+                    Entrada
+
+                </div>
+
+                <div
+                class="onda salida"
+                id="ondaSalida"
+                >
+
+                    Salida
+
+                </div>
+
+            </div>
+
+            <p id="textoGanancia">
+
+                Ganancia Baja
+
+            </p>
+
+        </div>
+
+        <h3>Aplicaciones reales</h3>
+
+        <ul>
+
+            <li>Parlantes</li>
+            <li>Micrófonos</li>
+            <li>Radios</li>
+            <li>Sistemas de sonido</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- UNIDAD 4 -->
+<!-- ========================================================= -->
+
+<section
+id="unidad4"
+class="taller-electronica"
+>
+
+    <!-- ========================================================= -->
+    <!-- INTRO -->
+    <!-- ========================================================= -->
+
+    <div class="bloque-taller">
+
+        <h2>
+            Unidad 4 — Electrónica de Potencia
+        </h2>
+
+        <p>
+            La electrónica de potencia estudia dispositivos
+            capaces de controlar grandes cantidades de energía eléctrica.
+        </p>
+
+        <p>
+            Estos componentes son utilizados en sistemas industriales,
+            controladores de motores, dimmers y conversores de energía.
+        </p>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- SCR -->
+    <!-- ========================================================= -->
+
+    <div
+    id="scr"
+    class="bloque-taller"
+    >
+
+        <h2>SCR</h2>
+
+        <p>
+            El SCR (Rectificador Controlado de Silicio)
+            es un dispositivo semiconductor utilizado
+            para controlar potencia eléctrica.
+        </p>
+
+        <h3>Funcionamiento</h3>
+
+        <p>
+            El SCR permanece apagado hasta recibir
+            una señal de disparo en la compuerta.
+        </p>
+
+        <h3>Aplicaciones reales</h3>
+
+        <ul>
+
+            <li>Control industrial</li>
+            <li>Rectificadores controlados</li>
+            <li>Sistemas de potencia</li>
+            <li>Automatización</li>
+
+        </ul>
+
+        <!-- ========================================================= -->
+        <!-- INTERACCION SCR -->
+        <!-- ========================================================= -->
+
+        <div class="scr-container">
+
+            <button onclick="activarSCR()">
+
+                Disparar SCR
+
+            </button>
+
+            <div id="estadoSCR">
+
+                SCR Desactivado
+
+            </div>
+
+            <div class="carga-scr">
+
+                <div id="luzSCR"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TRIAC -->
+    <!-- ========================================================= -->
+
+    <div
+    id="triac"
+    class="bloque-taller"
+    >
+
+        <h2>TRIAC</h2>
+
+        <p>
+            El TRIAC es un componente utilizado
+            para controlar corriente alterna (AC).
+        </p>
+
+        <p>
+            Permite regular la cantidad de energía
+            entregada a una carga.
+        </p>
+
+        <h3>Aplicaciones</h3>
+
+        <ul>
+
+            <li>Dimmers de iluminación</li>
+            <li>Control de ventiladores</li>
+            <li>Control de velocidad</li>
+
+        </ul>
+
+        <!-- ========================================================= -->
+        <!-- DIMMER -->
+        <!-- ========================================================= -->
+
+        <h3>Control de Brillo</h3>
+
+        <div class="triac-box">
+
+            <div id="bombilloTRIAC"></div>
+
+            <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            id="sliderTRIAC"
+            oninput="controlarTRIAC()"
+            >
+
+            <p id="textoTRIAC">
+
+                Potencia Media
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ELECTRONICA DE POTENCIA -->
+    <!-- ========================================================= -->
+
+    <div
+    id="potencia"
+    class="bloque-taller"
+    >
+
+        <h2>Electrónica de Potencia</h2>
+
+        <p>
+            La electrónica de potencia se encarga
+            de convertir, controlar y distribuir energía eléctrica.
+        </p>
+
+        <h3>Objetivos principales</h3>
+
+        <ul>
+
+            <li>Controlar motores</li>
+            <li>Ahorrar energía</li>
+            <li>Regular voltaje</li>
+            <li>Controlar altas corrientes</li>
+
+        </ul>
+
+        <h3>Aplicaciones reales</h3>
+
+        <div class="potencia-grid">
+
+            <div class="potencia-card">
+
+                <h3>Inversores</h3>
+
+                <p>
+                    Transforman corriente continua
+                    en corriente alterna.
+                </p>
+
+            </div>
+
+            <div class="potencia-card">
+
+                <h3>Fuentes Switching</h3>
+
+                <p>
+                    Utilizadas en computadores
+                    y cargadores modernos.
+                </p>
+
+            </div>
+
+            <div class="potencia-card">
+
+                <h3>Variadores</h3>
+
+                <p>
+                    Controlan velocidad de motores eléctricos.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- FLUJO ENERGIA -->
+        <!-- ========================================================= -->
+
+        <h3>Flujo de Energía</h3>
+
+        <div class="energia-container">
+
+            <div class="energia-box fuente">
+
+                Fuente
+
+            </div>
+
+            <div class="flecha-energia">
+
+                ➜ ➜ ➜
+
+            </div>
+
+            <div class="energia-box carga">
+
+                Motor / Carga
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    <script src="script.js"></script>
+
+  <!-- ========================================================= -->
+<!-- BOTON SUBIR -->
+<!-- ========================================================= -->
+
+<button
+id="btnTop"
+onclick="subirArriba()"
+>
+
+↑
+
+</button>
+    
+</body>
+</html>
